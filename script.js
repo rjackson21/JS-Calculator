@@ -18,4 +18,15 @@ function operate(num1, num2, operator) {
     return operator(num1, num2);
 }
 
-console.log(operate(2, 4, multiply))
+const display = document.querySelector('.display')
+const displayedNum = display.textContent
+const keys = document.querySelector('.keys')
+
+
+keys.addEventListener('click', function(e) {
+    const key = e.target
+    const keyContent = key.textContent
+    if (displayedNum === '0')
+    display.textContent = keyContent
+})
+
