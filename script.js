@@ -19,14 +19,20 @@ function operate(num1, num2, operator) {
 }
 
 const display = document.querySelector('.display')
-const displayedNum = display.textContent
+var displayedNum = display.textContent
 const keys = document.querySelector('.keys')
 
 
 keys.addEventListener('click', function(e) {
     const key = e.target
     const keyContent = key.textContent
-    if (displayedNum === '0')
+    // if (displayedNum === '0') 
+    
     display.textContent = keyContent
+    
+    
+   // else {
+    //    display.textContent = displ keyContent
+   // } 
 })
 
