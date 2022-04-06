@@ -21,11 +21,12 @@ function operate(num1, num2, operator) {
 const display = document.querySelector('.display')
 var displayedNum = display.textContent
 const keys = document.querySelector('.keys')
-
+var clickedOperator = false
 
 keys.addEventListener('click', function(e) {
     const key = e.target
     const keyContent = key.textContent
+
 
     if (key.classList.contains('equal')) {
         const question = displayedNum
@@ -43,12 +44,22 @@ keys.addEventListener('click', function(e) {
             displayedNum = display.textContent
         }
         else if (!(key.classList.contains('operator'))){
-            display.textContent = displayedNum + keyContent
-            displayedNum = display.textContent
-            num1 = displayedNum
-            console.log(num1)
+            if (clickedOperator != true) { // if operator has not been clicked 
+                display.textContent = displayedNum + keyContent
+                displayedNum = display.textContent
+                num1 = displayedNum
+                console.log(num1)
+            }
+            else if (clickedOperator = true) { // if operator has been clicked 
+                display.textContent = keyContent
+                displayedNum = display.textContent
+                num2 = displayedNum
+                console.log(num2)
+                
+             }
         }
         else if (key.classList.contains('operator')){
+            clickedOperator = true
             key.classList.add("change")
             num1 = displayedNum
             displayedNum = display.textContent
