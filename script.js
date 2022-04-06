@@ -36,6 +36,10 @@ keys.addEventListener('click', function(e) {
             display.textContent = '0'
             displayedNum = display.textContent
         }
+        else if (key.classList.contains('equal')) {
+            const question = displayedNum
+            console.log(displayedNum)
+        }
         else {
             display.textContent = displayedNum + keyContent
             displayedNum = display.textContent
