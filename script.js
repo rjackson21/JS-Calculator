@@ -26,13 +26,16 @@ const keys = document.querySelector('.keys')
 keys.addEventListener('click', function(e) {
     const key = e.target
     const keyContent = key.textContent
-    // if (displayedNum === '0') 
+    if (displayedNum === '0') {
     
     display.textContent = keyContent
-    
-    
-   // else {
-    //    display.textContent = displ keyContent
-   // } 
+    displayedNum = display.textContent
+    }
+
+    else {
+        display.textContent = displayedNum + keyContent
+        displayedNum = display.textContent
+    }
+
 })
 
