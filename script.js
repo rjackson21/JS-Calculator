@@ -49,15 +49,27 @@ keys.addEventListener('click', function(e) {
     else if (key.classList.contains('equal')) {
         if (operation === '-') {
             display.textContent = operate(num1, num2, subtract)
+            displayedNum = display.textContent
+            num1 = displayedNum
+            console.log(num1)
         }
         else if (operation === 'X') {
             display.textContent = operate(num1, num2, multiply)
+            displayedNum = display.textContent
+            num1 = displayedNum
+            console.log(num1)
         }
         else if (operation === '%') {
             display.textContent = operate(num1, num2, divide)
+            displayedNum = display.textContent
+            num1 = displayedNum
+            console.log(num1)
         }
         else if (operation === '+') {
             display.textContent = operate(num1, num2, add)
+            displayedNum = display.textContent
+            num1 = displayedNum
+            console.log(num1)
         }
     }
     else if (!(key.classList.contains('operator'))){
