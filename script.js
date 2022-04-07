@@ -29,8 +29,11 @@ keys.addEventListener('click', function(e) {
 
 
     if (key.classList.contains('equal')) {
-        const question = displayedNum
-       // operate(num1, num2, operator)
+        if (operation = 'X') {
+            display.textContent = (multiply(num1, num2))
+            
+        }
+
     }
     else {
         if (displayedNum === '0') {
