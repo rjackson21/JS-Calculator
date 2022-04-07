@@ -22,6 +22,7 @@ const display = document.querySelector('.display')
 var displayedNum = display.textContent
 const keys = document.querySelector('.keys')
 var clickedOperator = false
+var operation
 
 keys.addEventListener('click', function(e) {
     const key = e.target
@@ -38,8 +39,7 @@ keys.addEventListener('click', function(e) {
         key.classList.add("change")
         num1 = displayedNum
         displayedNum = display.textContent
-        const operation = keyContent
-        console.log(num1)
+        operation = keyContent
         console.log(operation)
     }
     else if (key.classList.contains('clear')){
