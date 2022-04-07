@@ -47,15 +47,18 @@ keys.addEventListener('click', function(e) {
         displayedNum = display.textContent
     }
     else if (key.classList.contains('equal')) {
-        console.log(operation)
-        // if (operation = 'X') {
-        //     operator = multiply
-        //     display.textContent = (operate(num1, num2, operator))
-        //     console.log("I think im multiplying")
-        // }
-        // else if (operation = "%") {
-        //     operator = divide
-        //     display.textContent = (operate(num1, num2, operator))
+        if (operation === '-') {
+            display.textContent = operate(num1, num2, subtract)
+        }
+        else if (operation === 'X') {
+            display.textContent = operate(num1, num2, multiply)
+        }
+        else if (operation === '%') {
+            display.textContent = operate(num1, num2, divide)
+        }
+        else if (operation === '+') {
+            display.textContent = operate(num1, num2, add)
+        }
     }
     else if (!(key.classList.contains('operator'))){
          if (clickedOperator != true) { // if operator has not been clicked 
