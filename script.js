@@ -27,50 +27,55 @@ keys.addEventListener('click', function(e) {
     const key = e.target
     const keyContent = key.textContent
 
-
-    if (key.classList.contains('equal')) {
-        if (operation = 'X') {
-            display.textContent = (multiply(num1, num2))
-            
-        }
-
+    if (displayedNum === '0') {
+        display.textContent = keyContent
+        displayedNum = display.textContent
+        const num1 = displayedNum
+        console.log(num1)
     }
-    else {
-        if (displayedNum === '0') {
+    else if (key.classList.contains('operator')){
+        clickedOperator = true
+        key.classList.add("change")
+        num1 = displayedNum
+        displayedNum = display.textContent
+        const operation = keyContent
+        console.log(num1)
+        console.log(operation)
+    }
+    else if (key.classList.contains('clear')){
+        display.textContent = '0'
+        displayedNum = display.textContent
+    }
+    else if (key.classList.contains('equal')) {
+        console.log(operation)
+        // if (operation = 'X') {
+        //     operator = multiply
+        //     display.textContent = (operate(num1, num2, operator))
+        //     console.log("I think im multiplying")
+        // }
+        // else if (operation = "%") {
+        //     operator = divide
+        //     display.textContent = (operate(num1, num2, operator))
+    }
+    else if (!(key.classList.contains('operator'))){
+         if (clickedOperator != true) { // if operator has not been clicked 
+            display.textContent = displayedNum + keyContent
+            displayedNum = display.textContent
+            num1 = displayedNum
+            console.log(num1)
+        }
+        else if (clickedOperator = true) { // if operator has been clicked 
             display.textContent = keyContent
             displayedNum = display.textContent
-            const num1 = displayedNum
-            console.log(num1)
-        }
-        else if (key.classList.contains('clear')){
-            display.textContent = '0'
-            displayedNum = display.textContent
-        }
-        else if (!(key.classList.contains('operator'))){
-            if (clickedOperator != true) { // if operator has not been clicked 
-                display.textContent = displayedNum + keyContent
-                displayedNum = display.textContent
-                num1 = displayedNum
-                console.log(num1)
-            }
-            else if (clickedOperator = true) { // if operator has been clicked 
-                display.textContent = keyContent
-                displayedNum = display.textContent
-                num2 = displayedNum
-                console.log(num2)
-                
-             }
-        }
-        else if (key.classList.contains('operator')){
-            clickedOperator = true
-            key.classList.add("change")
-            num1 = displayedNum
-            displayedNum = display.textContent
-            const operation = keyContent
-            console.log(num1)
-            console.log(operation)
+            num2 = displayedNum
+            console.log(num2)
         }
     }
-    
+        
+
+
 })
+
+    
+
 
