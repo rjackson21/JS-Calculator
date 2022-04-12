@@ -24,15 +24,16 @@ const keys = document.querySelector('.keys')
 var clickedOperator = false
 var operation
 
+
 keys.addEventListener('click', function(e) {
     const key = e.target
     const keyContent = key.textContent
 
-    if (displayedNum === '0') {
+    if (displayedNum === '0' && (!(key.classList.contains('clear')))) {
         display.textContent = keyContent
         displayedNum = display.textContent
         const num1 = displayedNum
-        console.log(num1)
+       
     }
     else if (key.classList.contains('operator')){
         clickedOperator = true
@@ -40,50 +41,56 @@ keys.addEventListener('click', function(e) {
         num1 = displayedNum
         displayedNum = display.textContent
         operation = keyContent
-        console.log(operation)
+        
     }
     else if (key.classList.contains('clear')){
         display.textContent = '0'
         displayedNum = display.textContent
+        num1 = undefined
+        num2 = undefined 
+        const greenButton = document.querySelector('.change')
+        greenButton.classList.remove("change")
     }
     else if (key.classList.contains('equal')) {
         if (operation === '-') {
             display.textContent = operate(num1, num2, subtract)
             displayedNum = display.textContent
             num1 = displayedNum
-            console.log(num1)
+            
         }
         else if (operation === 'X') {
             display.textContent = operate(num1, num2, multiply)
             displayedNum = display.textContent
             num1 = displayedNum
-            console.log(num1)
+            
         }
         else if (operation === '%') {
             display.textContent = operate(num1, num2, divide)
             displayedNum = display.textContent
             num1 = displayedNum
-            console.log(num1)
+            
         }
         else if (operation === '+') {
             display.textContent = operate(num1, num2, add)
             displayedNum = display.textContent
             num1 = displayedNum
-            console.log(num1)
+            
         }
+        const greenButton = document.querySelector('.change')
+        greenButton.classList.remove("change") //remove style on operator button when equals is clicked
     }
     else if (!(key.classList.contains('operator'))){
          if (clickedOperator != true) { // if operator has not been clicked 
             display.textContent = displayedNum + keyContent
             displayedNum = display.textContent
             num1 = displayedNum
-            console.log(num1)
+            
         }
         else if (clickedOperator = true) { // if operator has been clicked 
             display.textContent = keyContent
             displayedNum = display.textContent
             num2 = displayedNum
-            console.log(num2)
+            
         }
     }
         
